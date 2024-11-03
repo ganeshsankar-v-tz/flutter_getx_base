@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 
-import '../home/home.dart';
 import '../login/login.dart';
-
 
 class SplashController extends GetxController with StateMixin {
   @override

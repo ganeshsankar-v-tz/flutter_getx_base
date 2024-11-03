@@ -16,8 +16,14 @@ class _State extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SplashController>(builder: (controller) {
-      return const Scaffold(
-        body: Center(child: FlutterLogo(size: 200)),
+      return Scaffold(
+        body: Container(
+          alignment: Alignment.center,
+          child: Image.asset(
+            'assets/images/logo.png',
+            height: 200,
+          ),
+        ),
       );
     });
   }

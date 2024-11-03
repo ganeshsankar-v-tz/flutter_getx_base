@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_flutter_base/utils/app_theme.dart';
+import 'package:getx_flutter_base/flutter_core_widget.dart';
 
 import 'home_controller.dart';
 
@@ -19,41 +19,46 @@ class _state extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (controller) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('APP NAME'),
-        ),
-        body: ListView.builder(
-          padding: const EdgeInsets.only(top: 10),
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            var item = 'PRODUCT #${index + 1}';
-            return ListTile(
-              onTap: () async {
-                bool value = AppTheme().isDarkMode;
-                value = !value;
-                AppTheme().updateThemeStatus(value);
-              },
-              contentPadding: const EdgeInsets.all(12),
-              title: Text(item),
-              subtitle: const Text(
-                  'It is a long established fact that a reader will be distracted by the readable content of a page.'),
-            );
-          },
-        ),
+      return CoreWidget(
+        loadingStatus: false,
+        child: Container(),
       );
 
-      /*return CoreWidget(
-        loadingStatus: controller.status.isLoading,
-        appBar: AppBar(title:  Text('${Theme.of(context).primaryColor}')),
-        child: ListView.builder(
-            padding: const EdgeInsets.only(top: 10),
-            itemCount: controller.list.length,
-            itemBuilder: (context, index) {
-              var item = controller.list[index];
-              return ListTile(title: Text(item.title));
-            }),
-      );*/
+      // return Scaffold(
+      //   appBar: AppBar(
+      //     title: const Text('APP NAME'),
+      //   ),
+      //   body: ListView.builder(
+      //     padding: const EdgeInsets.only(top: 10),
+      //     itemCount: 5,
+      //     itemBuilder: (context, index) {
+      //       var item = 'PRODUCT #${index + 1}';
+      //       return ListTile(
+      //         onTap: () async {
+      //           bool value = AppTheme().isDarkMode;
+      //           value = !value;
+      //           AppTheme().updateThemeStatus(value);
+      //         },
+      //         contentPadding: const EdgeInsets.all(12),
+      //         title: Text(item),
+      //         subtitle: const Text(
+      //             'It is a long established fact that a reader will be distracted by the readable content of a page.'),
+      //       );
+      //     },
+      //   ),
+      // );
+      //
+      // /*return CoreWidget(
+      //   loadingStatus: controller.status.isLoading,
+      //   appBar: AppBar(title:  Text('${Theme.of(context).primaryColor}')),
+      //   child: ListView.builder(
+      //       padding: const EdgeInsets.only(top: 10),
+      //       itemCount: controller.list.length,
+      //       itemBuilder: (context, index) {
+      //         var item = controller.list[index];
+      //         return ListTile(title: Text(item.title));
+      //       }),
+      // );*/
     });
   }
 }
